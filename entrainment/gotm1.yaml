@@ -1,0 +1,271 @@
+version: 7
+title: shear-driven entrainment
+location:
+  name: north_pole
+  latitude: 45.0
+  longitude: 0.0
+  depth: 100.0
+time:
+  start: 2005-01-01 00:00:00
+  stop: 2005-01-10 00:00:00
+  dt: 60.0
+grid:
+  nlev: 500
+  method: 0
+  ddu: 0.0
+  ddl: 0.0
+  file:
+temperature:
+  type: conservative
+  method: 13
+  file:
+  column: 1
+  relax:
+    tau: 1000000000000000.0
+  constant_value: 20.0
+  two_layer:
+    z_s: 30.0
+    t_s: 20.0
+    z_b: 40.0
+    t_b: 15.0
+  NN: 0.0001
+salinity:
+  type: absolute                   
+  method: 11
+  file:
+  column: 1
+  relax:
+    tau: 1000000000000000.0
+  constant_value: 20.0
+  two_layer:
+    z_s: 30.0
+    s_s: 20.0
+    z_b: 40.0
+    s_b: 15.0
+  NN: 0.00
+surface:
+  fluxes:
+    method: 0
+    heat:
+      method: 0
+      constant_value: 0.0
+      file:
+      column: 1
+    tx:
+      method: 0
+      constant_value: 0.1027
+      file:
+      column: 1
+    ty:
+      method: 0
+      constant_value: 0.0
+      file:
+      column: 1
+  longwave_radiation:
+    method: 1
+    file:
+    column: 1
+  albedo:
+    method: 0
+    constant_value: 0.0
+  roughness:
+    charnock: false
+    charnock_val: 1400.0
+    z0s_min: 0.02
+  u10:
+    method: 2
+    constant_value: 0.0
+    file:
+    column: 1
+  v10:
+    method: 2
+    constant_value: 0.0
+    file:
+    column: 2
+  airp:
+    method: 2
+    constant_value: 0.0
+    file:
+    column: 3
+    scale_factor: 100.0
+  airt:
+    method: 2
+    constant_value: 0.0
+    file:
+    column: 4
+  hum:
+    method: 2
+    constant_value: 0.0
+    file:
+    column: 5
+    type: 1
+  cloud:
+    method: 2
+    constant_value: 0.0
+    file:
+    column: 6
+  swr:
+    method: 1
+    constant_value: 0.0
+    file:
+    column: 1
+  precip:
+    method: 0
+    constant_value: 0.0
+    file:
+    column: 1
+    flux_impact: false
+  calc_evaporation: false
+  ssuv_method: 0
+bottom:
+  h0b: 0.05
+light_extinction:
+  method: 1
+  A:
+    method: 0
+    constant_value: 0.7
+    file:
+    column: 1
+  g1:
+    method: 0
+    constant_value: 0.4
+    file:
+    column: 1
+  g2:
+    method: 0
+    constant_value: 8.0
+    file:
+    column: 1
+turbulence:
+  turb_method: 3
+  tke_method: 2
+  len_scale_method: 8
+  stab_method: 1
+  turb_param:
+    cm0_fix: 0.5477
+    Prandtl0_fix: 0.74
+    cw: 100.0
+    compute_kappa: true
+    kappa: 0.4
+    compute_c3: true
+    Ri_st: 0.25
+    length_lim: false
+    galp: 0.53
+    const_num: 0.0005
+    const_nuh: 0.0005
+    k_min: 1.0e-10
+    eps_min: 1.0e-14
+    kb_min: 1.0e-10
+    epsb_min: 1.0e-14
+  scnd:                                   # second-order model
+    scnd_coeff: 5                  # Canuto A
+    method: quasi_eq             # quasi equilibrium functions
+mimic_3d:
+  ext_pressure:
+    dpdx:
+      method: 0
+      constant_value: 0.0
+      file:
+      column: 1
+      tidal:
+        amp_1: 0.0
+        phase_1: 0.0
+        amp_2: 0.0
+        phase_2: 0.0
+    dpdy:
+      method: 0
+      constant_value: 0.0
+      file:
+      column: 1
+      tidal:
+        amp_1: 0.0
+        phase_1: 0.0
+        amp_2: 0.0
+        phase_2: 0.0
+    h:
+      method: 0
+      constant_value: 0.0
+      file:
+      column: 1
+    type: 0
+    period_1: 44714.0
+    period_2: 43200.0
+  zeta:
+    method: 0
+    constant_value: 0.0
+    file:
+    column: 1
+    tidal:
+      period_1: 44714.0
+      amp_1: 1.0
+      phase_1: 0.0
+      period_2: 43200.0
+      amp_2: 0.5
+      phase_2: 0.0
+  w:
+    max:
+      method: 0
+      constant_value: 0.0
+      file:
+      column: 1
+    height:
+      method: 1
+      constant_value: 0.0
+      file:
+      column: 1
+    adv_discr: 4
+  int_pressure:
+    t_adv: false
+    s_adv: false
+    gradients:
+      dtdx:
+        method: 0
+        constant_value: 0.0
+        file:
+        column: 1
+      dtdy:
+        method: 0
+        constant_value: 0.0
+        file:
+        column: 1
+      dsdx:
+        method: 0
+        constant_value: 0.0
+        file:
+        column: 1
+      dsdy:
+        method: 0
+        constant_value: 0.0
+        file:
+        column: 1
+velocities:
+  u:
+    method: 0
+    file:
+    column: 1
+  v:
+    method: 0
+    file:
+    column: 1
+  relax:
+    tau: 1000000000000000.0
+    ramp: 1000000000000000.0
+o2:
+  scale_factor: 31.25
+restart:
+  load: false
+# in output.yaml
+output:
+  entrainment:
+    format: netcdf
+    time_unit: dt
+    time_step: 60
+    time_method: point
+    variables:
+    - source: /*
+equation_of_state:
+  linear:
+    T0: 20.0
+    S0: 20.0
+    p0: 0.0
+  method: linear_teos-10
